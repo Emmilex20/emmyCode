@@ -70,15 +70,15 @@ const cardVariants: Variants = {
 
 const Services = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.3 });
+  const isInView = useInView(ref, { once: true, amount: 0.1 });
 
   return (
     <section id="services" className="py-24 bg-background dark:bg-dark-bg dark:text-white">
       <div className="container mx-auto px-4 md:px-8 text-center">
-        <h2 className="text-4xl md:text-5xl font-black text-text dark:text-white">
+        <h2 className="text-4xl md:text-5xl font-black text-text">
           What We <span className="text-secondary">Offer</span>
         </h2>
-        <p className="mt-4 text-xl text-text dark:text-white/80 max-w-3xl mx-auto">
+        <p className="mt-4 text-xl text-text max-w-3xl mx-auto">
           We combine technical expertise with creative problem-solving to deliver a full suite of
           services tailored to your unique needs.
         </p>
