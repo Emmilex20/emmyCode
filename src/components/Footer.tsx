@@ -11,10 +11,19 @@ const Footer = () => {
 
         {/* Brand & Mission */}
         <div>
-          <h3 className="text-4xl font-extrabold mb-4 text-text">EmmyCode.</h3>
-          <p className="text-sm leading-relaxed mb-4 text-text/80">
-            Building beautiful and functional websites with passion and precision. Located in Lekki, Lagos, we turn your digital dreams into reality.
-          </p>
+          <div className="flex flex-col items-center justify-center text-center">
+  <img
+    src="/src/assets/logo.png"
+    alt="EmmyCode Logo"
+    className="w-16 h-16 rounded-full mb-4"
+  />
+  <h3 className="text-4xl font-extrabold mb-4 text-text">
+    EmmyCode.
+  </h3>
+  <p className="text-sm leading-relaxed mb-4 text-text/80 max-w-sm">
+    Building beautiful and functional websites with passion and precision. Located in Lekki, Lagos, we turn your digital dreams into reality.
+  </p>
+</div>
           <div className="flex space-x-4">
             {footerSocials.map((social, index) => (
               <a
