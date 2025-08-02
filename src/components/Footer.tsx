@@ -13,7 +13,7 @@ const Footer = () => {
         <div>
           <div className="flex flex-col items-center justify-center text-center">
   <img
-    src="/src/assets/logo.png"
+    src="/logo.png"
     alt="EmmyCode Logo"
     className="w-16 h-16 rounded-full mb-4"
   />
