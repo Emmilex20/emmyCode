@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* 1. Define Root Color Variables and Dark Mode 
+   This setup allows for a quick dark mode toggle by adding the 'dark' class
+   to the <html> tag.
+*/
+:root {
+  --color-primary: #1a202c;
+  --color-secondary: #3b82f6;
+  --color-background: #f1f5f9; /* Changed for better contrast */
+  --color-text: #1a202c;
+  --color-card-bg: #ffffff; /* Remains white for high contrast */
+  --color-card-shadow: rgba(0, 0, 0, 0.1);
+  --color-input-bg: #e2e8f0; /* New light color for cards/inputs */
+}
+
+.dark {
+  --color-primary: #f8fafc;
+  --color-secondary: #60a5fa;
+  --color-background: #0f172a;
+  --color-text: #e2e8f0;
+  --color-card-bg: #1e293b;
+  --color-card-shadow: rgba(0, 0, 0, 0.5);
+  --color-input-bg: #2d3748;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* 2. Complex Background Layers with Gradient and Noise
+   The radial gradient creates a soft glow, and the pseudo-element
+   adds a subtle noise texture for depth without being distracting.
+*/
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  background-color: var(--color-background);
+  background: radial-gradient(circle at 10% 10%, rgba(59, 130, 246, 0.05) 0%, transparent 40%),
+              radial-gradient(circle at 90% 90%, rgba(59, 130, 246, 0.05) 0%, transparent 40%);
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+/* 3. Custom Scrollbar Styling
+   This provides a professional, branded scrollbar that matches your theme.
+*/
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-secondary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2563eb;
+}
+
+@layer components {
+  .container-full {
+    @apply mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* 4. Global Card Styles
+     This class provides a consistent, professional look for card components
+     across your entire site. Use it for your ProjectCards and TeamMemberCards.
+  */
+  .card-style {
+    @apply bg-white rounded-3xl overflow-hidden shadow-xl transition-all duration-300 transform hover:scale-105;
+    background-color: var(--color-card-bg);
+    box-shadow: 0 10px 15px -3px var(--color-card-shadow), 0 4px 6px -2px var(--color-card-shadow);
+  }
+}
+
+/* 5. Refine Link Styling
+   Adds a consistent hover effect for all anchor tags.
+*/
+a {
+  @apply transition-colors duration-200;
+}
