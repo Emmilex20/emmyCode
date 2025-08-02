@@ -22,7 +22,7 @@ const childVariants: Variants = {
 
 const PortfolioPage = () => {
   const projectsRef = useRef(null);
-  const projectsInView = useInView(projectsRef, { once: true, amount: 0.3 });
+  const projectsInView = useInView(projectsRef, { once: true, amount: 0.1 });
 
   return (
     <>
@@ -92,7 +92,7 @@ const PortfolioPage = () => {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
+          viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <h2 className="text-4xl font-black text-text">
